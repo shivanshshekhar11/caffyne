@@ -1,4 +1,7 @@
-import 'package:caffyne/offersPage.dart';
+import 'package:caffyne/dataManager.dart';
+import 'package:caffyne/pages/menuPage.dart';
+import 'package:caffyne/pages/offersPage.dart';
+import 'package:caffyne/pages/ordersPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -72,6 +75,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var currentIndex = 0;
+  DataManager dataManager = DataManager();
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     switch (currentIndex) {
       case 0:
-        currentWidget = const Text("Home works!");
+        currentWidget = MenuPage(
+          dataManager: dataManager,
+        );
         break;
 
       case 1:
@@ -87,7 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
 
       case 2:
-        currentWidget = const Text("Orders works!");
+        currentWidget = OrdersPage(
+          dataManager: dataManager,
+        );
         break;
     }
 
